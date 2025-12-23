@@ -5,7 +5,7 @@ export default function ChatMessage({ m }: { m: { role: string; content: string 
     return (
         <div className="my-10">
             <strong>{m.role}</strong>
-            <article className="prose prose-md max-w-none prose-zinc dark:prose-invert">
+            <article className="max-w-none">
                 <ReactMarkdown remarkPlugins={[remarkGfm]} >
                     {m.content}
                 </ReactMarkdown>

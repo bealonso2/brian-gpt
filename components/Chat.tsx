@@ -41,7 +41,7 @@ function Input({ input, setInput, textareaRef, resizeTextarea, send }
         <button
             onClick={send}
             disabled={!input.trim()}
-            className={`min-h-14 self-end border-2 text-white ${input.trim() ? "bg-black" : "bg-gray-300"} p-3 rounded ${input.trim() ? "cursor-pointer" : "cursor-not-allowed"}`}
+            className={`min-h-14 self-end text-white ${input.trim() ? "bg-black" : "bg-gray-500"} p-3 rounded ${input.trim() ? "cursor-pointer" : "cursor-not-allowed"}`}
         >
             Send
         </button>
@@ -90,9 +90,9 @@ export default function Chat() {
     }
 
     return (
-        <div className="mx-auto max-w-3xl p-5">
+        <div className="mx-auto max-w-3xl p-5 prose prose-md prose-zinc dark:prose-invert">
             {/* Header */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mb-2">
                 <h2 className="text-3xl font-semibold">Brian GPT</h2>
                 <ResetConversationButton resetMessages={() => setMessages([])} />
             </div>
