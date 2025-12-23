@@ -1,5 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import CopyButton from "./CopyButton";
 
 export default function ChatMessage({ m }: { m: { role: string; content: string } }) {
     return (
@@ -10,6 +11,7 @@ export default function ChatMessage({ m }: { m: { role: string; content: string 
                     {m.content}
                 </ReactMarkdown>
             </article>
+            <CopyButton content={m.content} />
         </div>
     );
 }
