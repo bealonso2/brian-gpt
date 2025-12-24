@@ -17,7 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "BrianGPT",
   description: "Brian's customized, self-hosted AI assistant",
-  icons: "/robot.svg"
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
