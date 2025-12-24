@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Brian GPT",
+  title: "BrianGPT",
   description: "Brian's customized, self-hosted AI assistant",
   icons: "/robot.svg"
 };

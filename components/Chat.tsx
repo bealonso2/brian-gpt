@@ -93,7 +93,7 @@ export default function Chat() {
         <div className="mx-auto max-w-3xl p-5 prose prose-md prose-zinc dark:prose-invert">
             {/* Header */}
             <div className="flex items-center justify-between mb-2">
-                <h2 className="text-3xl font-semibold">Brian GPT</h2>
+                <h2 className="text-3xl font-semibold">BrianGPT</h2>
                 <ResetConversationButton resetMessages={() => setMessages([])} />
             </div>
 
