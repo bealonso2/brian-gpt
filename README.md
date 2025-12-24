@@ -24,7 +24,7 @@ At the outset of this project, I was hoping to accomplish a few things:
 
 ## Security
 
-`BrianGPT` is set up such that only I can access it ([at least where I have it deployed](https://gpt.balonso.com)). Using Github Oauth and AuthJS, only Github accounts matching my email (an environment variable) are admitted.
+`BrianGPT` is set up such that only I can access it ([at least where I have it deployed](https://gpt.balonso.com)). Using GitHub Oauth and AuthJS, only GitHub accounts matching my email (an environment variable) are admitted.
 
 ## BrianGPT in Action
 
