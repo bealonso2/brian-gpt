@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BrianGPT
 
-## Getting Started
+This is a custom, self-hostable front end I made around the OpenAI API to serve as a custom ChatGPT interface.
 
-First, run the development server:
+## Motivation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+At the outset of this project, I was hoping to accomplish a few things:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Get pay-as-you-go access to the 'latest and greatest' OpenAI models.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   The alternatives are either limited access to the latest model with the free tier or pay $20 / month.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. More controlled output through custom instructions.
 
-## Learn More
+   I used to get so frustrated by the lengthy responses ChatGPT would give me! So much fluff—even when explicitly asking for concise responses!
 
-To learn more about Next.js, take a look at the following resources:
+   Using this tool, I have noticed that, by default, responses are pretty much just as long as I'd expect them to be, without any prompting.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Intentionally temporary knowledge.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   I pretty much used the "temporary chat" feature exclusively when using ChatGPT. Recently, I've come to realize that hoarding knowledge—as recommended by the _personal knowledge management_/_second brain_ community—doesn't do my intuition any good. This probably deserves a longer blog post, but TL; DR: I've written `BrianGPT` such that conversations are **intentionally temporary**.
 
-## Deploy on Vercel
+   Conversation history is stored exclusively by the browser and the associated tab.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Security
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`BrianGPT` is set up such that only I can access it ([at least where I have it deployed](https://gpt.balonso.com)). Using Github Oauth and AuthJS, only Github accounts matching my email (an environment variable) are admitted.
+
+## BrianGPT in Action
+
+Look at the pretty LaTeX rendering!
+
+![Pretty LaTeX rendering!](/docs/pics/math.png)
+
+And check out the pretty code blocks!
+
+![Pretty code blocks!](/docs/pics/code.png)
