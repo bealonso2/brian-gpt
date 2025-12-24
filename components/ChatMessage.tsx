@@ -24,7 +24,7 @@ export default function ChatMessage({
   m: { role: string; content: string };
 }) {
   return (
-    <div className="my-10">
+    <div>
       <strong>{m.role}</strong>
       <article className="markdown max-w-none">
         <ReactMarkdown
