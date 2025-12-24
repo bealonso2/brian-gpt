@@ -19,7 +19,11 @@ export const metadata: Metadata = {
   description: "Brian's customized, self-hosted AI assistant",
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const session = await auth();
 
   if (!session) {
@@ -34,7 +38,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-zinc-900`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-zinc-900`}
+      >
         {children}
       </body>
     </html>
