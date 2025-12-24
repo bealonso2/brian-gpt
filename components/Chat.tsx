@@ -35,7 +35,7 @@ function Input({
   send: () => Promise<void>;
 }) {
   return (
-    <div className="flex gap-2">
+    <div className="mt-8 flex gap-2">
       <textarea
         ref={textareaRef}
         value={input}
