@@ -33,7 +33,7 @@ export default function ChatMessage({ m }: { m: { role: string; content: string 
                             return (
                                 <div className="relative my-4">
                                     <div className="absolute right-2 top-2">
-                                        <CopyButton content={codeText} />
+                                        <CopyButton content={codeText} alwaysLight={true} />
                                     </div>
                                     <pre {...props}>{children}</pre>
                                 </div>

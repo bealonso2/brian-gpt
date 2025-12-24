@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function CopyButton({ content }: { content: string }) {
+export default function CopyButton({ content, alwaysLight = false }: { content: string, alwaysLight?: boolean }) {
     const [copied, setCopied] = useState(false);
 
     // Define a function to copy the contents to the clipboard
@@ -22,9 +22,9 @@ export default function CopyButton({ content }: { content: string }) {
             aria-label="Copy to clipboard"
         >
             {copied ? (
-                <span className="text-sm w-full text-right">Copied</span>
+                <span className={`text-sm w-full text-right ${alwaysLight && "not-dark:invert"}`}>Copied</span>
             ) : (
-                <img className="h-5 w-5 dark:invert" src="copy.svg" alt="" />
+                <img className={`h-5 w-5 ${alwaysLight ? "invert" : "dark:invert"}`} src="copy.svg" alt="" />
             )}
         </button>
     );
