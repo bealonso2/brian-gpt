@@ -7,6 +7,12 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import CopyButton from "./CopyButton";
 
+function normalizeMath(content: string): string {
+  return content
+    .replace(/\\\[([\s\S]*?)\\\]/g, (_, inner) => `$$${inner}$$`)
+    .replace(/\\\(([\s\S]*?)\\\)/g, (_, inner) => `$${inner}$`);
+}
+
 export function extractText(node: React.ReactNode): string {
   if (node == null || typeof node === "boolean") return "";
   if (typeof node === "string" || typeof node === "number") return String(node);
@@ -45,7 +51,7 @@ export default function ChatMessage({
             },
           }}
         >
-          {m.content}
+          {normalizeMath(m.content)}
         </ReactMarkdown>
       </article>
       <CopyButton content={m.content} />
