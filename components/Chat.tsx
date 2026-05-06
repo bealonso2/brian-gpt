@@ -14,10 +14,51 @@ function ResetConversationButton({
         resetMessages();
         sessionStorage.removeItem("chat");
       }}
-      className="cursor-pointer rounded bg-black p-3 text-white"
+      className="h-12 cursor-pointer rounded bg-black px-3 text-sm text-white sm:text-base"
     >
       Reset Conversation
     </button>
+  );
+}
+
+function Controls({
+  reasoningEffort,
+  setReasoningEffort,
+  textVerbosity,
+  setTextVerbosity,
+}: {
+  reasoningEffort: "low" | "medium" | "high";
+  setReasoningEffort: (v: "low" | "medium" | "high") => void;
+  textVerbosity: "concise" | "default" | "detailed";
+  setTextVerbosity: (v: "concise" | "default" | "detailed") => void;
+}) {
+  const selectClass =
+    "h-12 cursor-pointer rounded bg-black px-3 text-sm text-white sm:text-base";
+  return (
+    <div className="ml-auto flex gap-3">
+      <select
+        value={reasoningEffort}
+        onChange={(e) =>
+          setReasoningEffort(e.target.value as "low" | "medium" | "high")
+        }
+        className={selectClass}
+      >
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <select
+        value={textVerbosity}
+        onChange={(e) =>
+          setTextVerbosity(e.target.value as "concise" | "default" | "detailed")
+        }
+        className={selectClass}
+      >
+        <option value="concise">Concise</option>
+        <option value="default">Default</option>
+        <option value="detailed">Detailed</option>
+      </select>
+    </div>
   );
 }
 
@@ -68,6 +109,12 @@ function Input({
 export default function Chat() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<any[]>([]);
+  const [reasoningEffort, setReasoningEffort] = useState<
+    "low" | "medium" | "high"
+  >("medium");
+  const [textVerbosity, setTextVerbosity] = useState<
+    "concise" | "default" | "detailed"
+  >("concise");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Load messages from sessionStorage
@@ -102,15 +149,21 @@ export default function Chat() {
     }
 
     // Send the chat
-    const ai = await chat(updated);
+    const ai = await chat(updated, reasoningEffort, textVerbosity);
     setMessages([...updated, ai]);
   }
 
   return (
     <div className="prose prose-md prose-zinc dark:prose-invert mx-auto max-w-3xl p-5">
       {/* Header */}
-      <div className="mb-2 flex items-center justify-between">
-        <h2 className="text-3xl font-semibold">BrianGPT</h2>
+      <div className="my-10 flex items-center gap-3">
+        <h2 className="my-0! text-2xl font-semibold sm:text-3xl">BrianGPT</h2>
+        <Controls
+          reasoningEffort={reasoningEffort}
+          setReasoningEffort={setReasoningEffort}
+          textVerbosity={textVerbosity}
+          setTextVerbosity={setTextVerbosity}
+        />
         <ResetConversationButton resetMessages={() => setMessages([])} />
       </div>
 
