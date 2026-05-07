@@ -10,8 +10,8 @@ const client = new OpenAI({
 
 export async function chat(
   messages: any[],
-  reasoningEffort: "low" | "medium" | "high" = "medium",
-  textVerbosity: "concise" | "default" | "detailed" = "default",
+  reasoningEffort: "low" | "medium" | "high",
+  textVerbosity: "concise" | "default" | "detailed",
 ) {
   const session = await auth();
 
